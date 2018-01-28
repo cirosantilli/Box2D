@@ -73,6 +73,8 @@
 
 TestEntry g_testEntries[] =
 {
+	{"Edge Test", EdgeTest::Create},
+	{"Prismatic", Prismatic::Create},
 	{"Character Collision", CharacterCollision::Create},
 	{"Tiles", Tiles::Create},
 	{"Heavy on Light", HeavyOnLight::Create},
@@ -96,11 +98,9 @@ TestEntry g_testEntries[] =
 	{"Gears", Gears::Create},
 	{"Varying Restitution", VaryingRestitution::Create},
 	{"Cantilever", Cantilever::Create},
-	{"Edge Test", EdgeTest::Create},
 	{"Body Types", BodyTypes::Create},
 	{"Shape Editing", ShapeEditing::Create},
 	{"Car", Car::Create},
-	{"Prismatic", Prismatic::Create},
 	{"Revolute", Revolute::Create},
 	{"Pulleys", Pulleys::Create},
 	{"Polygon Shapes", PolyShapes::Create},

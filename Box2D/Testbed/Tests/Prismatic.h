@@ -37,12 +37,12 @@ public:
 
 		{
 			b2PolygonShape shape;
-			shape.SetAsBox(2.0f, 0.5f);
+			shape.SetAsBox(1.0f, 1.0f);
 
 			b2BodyDef bd;
 			bd.type = b2_dynamicBody;
-			bd.position.Set(-10.0f, 10.0f);
-			bd.angle = 0.5f * b2_pi;
+			bd.position.Set(0.0f, 0.0f);
+			bd.angle = b2_pi;
 			bd.allowSleep = false;
 			b2Body* body = m_world->CreateBody(&bd);
 			body->CreateFixture(&shape, 5.0f);
@@ -50,7 +50,7 @@ public:
 			b2PrismaticJointDef pjd;
 
 			// Bouncy limit
-			b2Vec2 axis(2.0f, 1.0f);
+			b2Vec2 axis(0.0f, 1.0f);
 			axis.Normalize();
 			pjd.Initialize(ground, body, b2Vec2(0.0f, 0.0f), axis);
 
@@ -60,9 +60,10 @@ public:
 			pjd.motorSpeed = 10.0f;
 			pjd.maxMotorForce = 10000.0f;
 			pjd.enableMotor = true;
-			pjd.lowerTranslation = 0.0f;
+			pjd.lowerTranslation = -20.0f;
 			pjd.upperTranslation = 20.0f;
 			pjd.enableLimit = true;
+			pjd.collideConnected = true;
 
 			m_joint = (b2PrismaticJoint*)m_world->CreateJoint(&pjd);
 		}
